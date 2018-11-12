@@ -48,7 +48,7 @@ function sensorName(id) {
         "SHT3X I2C", "BH1750", "PZEM004T", "AM2320 I2C", "GUVAS12SD",
         "TMP3X", "Sonar", "SenseAir", "GeigerTicks", "GeigerCPM",
         "NTC", "SDS011", "MICS2710", "MICS5525", "VL53L1X", "VEML6075",
-        "EZOPH"
+        "EZOPH", "UPSVoltronic"
     ];
     if (1 <= id && id <= names.length) {
         return names[id - 1];
@@ -65,7 +65,7 @@ function magnitudeType(type) {
         "PM1.0", "PM2.5", "PM10", "CO2", "Lux", "UVA", "UVB", "UV Index", "Distance" , "HCHO",
         "Local Dose Rate", "Local Dose Rate",
         "Count",
-        "NO2", "CO", "Resistance", "pH"
+        "NO2", "CO", "Resistance", "pH", "Frequency", "Load"
     ];
     if (1 <= type && type <= types.length) {
         return types[type - 1];
@@ -372,7 +372,7 @@ function checkTempRangeMin() {
         $("#tempRangeMinInput").val(max - 1);
     }
 }
-  
+
 function checkTempRangeMax() {
     var min = parseInt($("#tempRangeMinInput").val(), 10);
     var max = parseInt($("#tempRangeMaxInput").val(), 10);

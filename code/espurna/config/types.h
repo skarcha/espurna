@@ -341,5 +341,7 @@
 #define MAGNITUDE_CO                29
 #define MAGNITUDE_RESISTANCE        30
 #define MAGNITUDE_PH                31
+#define MAGNITUDE_FREQUENCY         32
+#define MAGNITUDE_LOAD              33
 
-#define MAGNITUDE_MAX               32
+#define MAGNITUDE_MAX               34
