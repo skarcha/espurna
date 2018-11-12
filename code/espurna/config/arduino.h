@@ -210,3 +210,4 @@
 //#define V9261F_SUPPORT         1
 //#define VEML6075_SUPPORT       1
 //#define VL53L1X_SUPPORT        1
+//#define UPS_VOLTRONIC_SUPPORT  1

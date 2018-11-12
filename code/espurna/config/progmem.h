@@ -247,6 +247,9 @@ PROGMEM const char espurna_sensors[] =
     #if EZOPH_SUPPORT
         "EZOPH "
     #endif
+    #if UPS_VOLTRONIC_SUPPORT
+        "UPS_VOLTRONIC "
+    #endif
     "";
 
 

@@ -193,7 +193,7 @@
                                                 // 0b011 = 3 = 4x 18bit/0.66 Pa
                                                 // 0b100 = 4 = 8x 19bit/0.33 Pa
                                                 // 0b101 = 5 = 16x 20bit/0.16 Pa
-  
+
 //------------------------------------------------------------------------------
 // Dallas OneWire temperature sensors
 // Enable support by passing DALLAS_SUPPORT=1 build flag
@@ -495,7 +495,7 @@
 // LDR sensor
 // Enable support by passing LDR_SUPPORT=1 build flag
 //------------------------------------------------------------------------------
- 
+
 #ifndef SENSOR_LUX_CORRECTION
 #define SENSOR_LUX_CORRECTION           0.0     // Offset correction
 #endif
@@ -503,35 +503,35 @@
 #ifndef LDR_SUPPORT
 #define LDR_SUPPORT                     0
 #endif
- 
+
 #ifndef LDR_SAMPLES
 #define LDR_SAMPLES                     10      // Number of samples
 #endif
- 
+
 #ifndef LDR_DELAY
 #define LDR_DELAY                       0       // Delay between samples in micros
 #endif
- 
+
 #ifndef LDR_TYPE
 #define LDR_TYPE                        LDR_GL5528
 #endif
- 
+
 #ifndef LDR_ON_GROUND
 #define LDR_ON_GROUND                   true
 #endif
- 
+
 #ifndef LDR_RESISTOR
 #define LDR_RESISTOR                    10000   // Resistance
 #endif
- 
+
 #ifndef LDR_MULTIPLICATION
 #define LDR_MULTIPLICATION              32017200
 #endif
- 
+
 #ifndef LDR_POWER
 #define LDR_POWER                       1.5832
 #endif
- 
+
 //------------------------------------------------------------------------------
 // MHZ19 CO2 sensor
 // Enable support by passing MHZ19_SUPPORT=1 build flag
@@ -934,6 +934,30 @@
 #define EZOPH_SYNC_INTERVAL          1000    // Amount of time (in ms) sync new readings.
 #endif
 
+// UPS Monitor using Voltronic Power protocol
+// Enable support by passing UPS_VOLTRONIC_SUPPORT=1 build flag
+//------------------------------------------------------------------------------
+
+#ifndef UPS_VOLTRONIC_SUPPORT
+#define UPS_VOLTRONIC_SUPPORT           0
+#endif
+
+#ifndef UPS_VOLTRONIC_USE_SOFT
+#define UPS_VOLTRONIC_USE_SOFT          0       // If UPS_VOLTRONIC_USE_SOFT == 1, DEBUG_SERIAL_SUPPORT must be 0
+#endif
+
+#ifndef UPS_VOLTRONIC_RX_PIN
+#define UPS_VOLTRONIC_RX_PIN            13      // Software serial RX GPIO (if UPS_VOLTRONIC_USE_SOFT == 1)
+#endif
+
+#ifndef UPS_VOLTRONIC_TX_PIN
+#define UPS_VOLTRONIC_TX_PIN            15      // Software serial TX GPIO (if UPS_VOLTRONIC_USE_SOFT == 1)
+#endif
+
+#ifndef UPS_VOLTRONIC_HW_PORT
+#define UPS_VOLTRONIC_HW_PORT           Serial  // Hardware serial port (if UPS_VOLTRONIC_USE_SOFT == 0)
+#endif
+
 // =============================================================================
 // Sensor helpers configuration - can't move to dependencies.h
 // =============================================================================
@@ -975,7 +999,8 @@
     VEML6075_SUPPORT || \
     VL53L1X_SUPPORT || \
     MAX6675_SUPPORT || \
-    EZOPH_SUPPORT \
+    EZOPH_SUPPORT || \
+    UPS_VOLTRONIC_SUPPORT \
 )
 #endif
 
@@ -1095,7 +1120,7 @@
 
 #if MAX6675_SUPPORT
     #include "../sensors/MAX6675Sensor.h"
-#endif 
+#endif
 
 #if MHZ19_SUPPORT
     #include "../sensors/MHZ19Sensor.h"
@@ -1159,6 +1184,10 @@
 
 #if VL53L1X_SUPPORT
     #include "../sensors/VL53L1XSensor.h"
+#endif
+
+#if UPS_VOLTRONIC_SUPPORT
+    #include "../sensors/UPSVoltronicSensor.h"
 #endif
 
 #endif // SENSOR_SUPPORT
