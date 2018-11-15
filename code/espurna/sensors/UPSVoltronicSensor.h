@@ -181,7 +181,7 @@ class UPSVoltronicSensor : public BaseSensor {
             _slot_values[3] = (double)response.substring(19,22).toFloat();
             _slot_values[4] = (double)response.substring(23,27).toFloat();
             _slot_values[5] = (double)response.substring(28,32).toFloat();
-            _slot_values[6] = (double)response.substring(34,37).toFloat();
+            _slot_values[6] = (double)response.substring(33,37).toFloat();
             _slot_values[7] = (double)response.substring(38,39).toFloat();
             _slot_values[8] = (double)response.substring(39,40).toFloat();
             _slot_values[9] = (double)response.substring(40,41).toFloat();
