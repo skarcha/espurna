@@ -3811,6 +3811,27 @@
     #define SSDP_SUPPORT        1
     #define RF_SUPPORT          1
 
+#elif defined(LOMOCORP_UPS)
+
+    // Info
+    #define MANUFACTURER        "LOMOCORP"
+    #define DEVICE              "UPS"
+
+    // LEDs
+    #define LED1_PIN            2
+    #define LED1_PIN_INVERSE    1
+
+    #define UPS_VOLTRONIC_SUPPORT  1
+    #define UPS_VOLTRONIC_USE_SOFT 1
+    #define INFLUXDB_SUPPORT       1
+
+    #define ALEXA_SUPPORT           0
+    #define BUTTON_SUPPORT          0
+    #define DOMOTICZ_SUPPORT        0
+    #define SCHEDULER_SUPPORT       0
+    #define THINGSPEAK_SUPPORT      0
+    #define I2C_SUPPORT             0
+
 #endif
 
 // -----------------------------------------------------------------------------
